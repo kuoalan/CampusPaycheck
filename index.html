@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Campus Smiles Paycheck Calculator</title>
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+   
+    <!-- Custom styles for this template -->
+    <link href="template.css" rel="stylesheet">
+  </head>
+  <body>
+    
+<div class="col-lg-8 mx-auto p-3 py-md-5">
+  <header class="d-flex align-items-center pb-3 mb-3 border-bottom">
+    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+      <title>Bootstrap</title>
+      <span class="fs-1">Campus Smiles Paycheck Calculator</span>
+    </a>
+  </header>
+
+  <main>
+    <p class="fs-5 col-md-12">Tool for calculating dentist production and paycheck at Campus Smiles</p>
+
+    <hr class="col-md-12 mb-3">
+
+    <div class="row g-5">
+      <div class="col-md-6">
+        <h2>Pay Information</h2>
+
+          <div class="form-group">
+            <label for="monthlyProduction">Monthly Production</label><br>
+            <input type="number" id="monthlyProduction" name="monthlyProduction" step="any"><br>
+            <label for="daysWorked">Days Worked</label><br>
+            <input type="number" id="daysWorked" name="daysWorked" value="0"><br>
+            <label for="invisalignCases">Invisalign Cases</label><br>
+            <input type="number" id="invisalignCases" name="invisalignCases" value="0"><br>
+            <label for="surgicalThirds">3rd Molars (Surgical)</label><br>
+            <input type="number" id="surgicalThirds" name="surgicalThirds" value="0"><br>
+            <label for="simpleThirds">3rd Molars (Simple)</label><br>
+            <input type="number" id="simpleThirds" name="simpleThirds" value="0"><br>
+            <label for="healthReimbursement">Healthcare Reimbursement</label><br>
+            <input type="number" id="healthReimbursement" name="healthReimbursement" value="900" step="any"><br>
+            <label for="adjustments">Other Adjustments</label><br>
+            <input type="number" id="adjustments" name="adjustments" step="any" value="0"><br>
+          </div>
+          <br>
+          <div class="col-md-6">
+            <button class="btn btn-primary" onclick="getFormData()">Submit</button>&emsp;
+            <button class="btn btn-primary" onclick="resetForm()">Reset</button>
+          </div>
+
+      </div>
+
+      <div class="col-md-6">
+        <h2>Results</h2>
+        <form>
+          <div class="form-group">
+            <label for="monthlyPaycheck">Total Monthly Paycheck</label><br>
+            <input type="text" id="monthlyPaycheck" name="monthlyPaycheck" readonly><br>
+            <label for="dailyProduction">Adjusted Daily Production</label><br>
+            <input type="text" id="dailyProduction" name="dailyProduction" readonly><br>
+            <label for="rawProduction">Raw Daily Production</label><br>
+            <input type="text" id="rawProduction" name="rawProduction" readonly><br>
+          </div>
+        </form> 
+
+      </div>
+    </div>
+  </main>
+  <footer class="pt-5 my-5 text-muted border-top">
+    Created by Alan Kuo with Bootstrap &middot; &copy; 2022
+  </footer>
+</div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/calculate.js"></script>
+  </body>
+</html>
