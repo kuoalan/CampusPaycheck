@@ -26,12 +26,17 @@ function calculatePaycheck(monthlyProduction, invisalign, surgicalThirds, simple
 	var topTier = Math.max(0, adjustedDailyProduction - 3500);
 	var midTier = Math.max(0, adjustedDailyProduction - topTier - 2500);
 	var lowTier = Math.max(0, adjustedDailyProduction - topTier - midTier);
-	var dailyPay = (Math.max((topTier * 0.4 + midTier*0.35 + lowTier*0.3 + ((simpleThirds * 86 * 0.4)/daysWorked) + ((surgicalThirds * 140 * 0.4)/daysWorked)), 800.00)).toFixed(2);
-	var monthlyPaycheck = ((dailyPay*daysWorked) + parseFloat(healthReimbursement) + parseFloat(adjustments)).toFixed(2)
-	document.getElementById("dailyProduction").value = dailyPay
-	document.getElementById("monthlyPaycheck").value = monthlyPaycheck
+	var thirdsProduction = ((simpleThirds * 86 * 0.4)/daysWorked) + ((surgicalThirds * 140 * 0.4)/daysWorked);
+	var regProduction = (topTier * 0.4 + midTier*0.35 + lowTier*0.3)
+	var dailyPay = (Math.max((regProduction + thirdsProduction), 800.00));
+	var monthlyPaycheck = ((dailyPay*daysWorked) + parseFloat(healthReimbursement) + parseFloat(adjustments))
+	document.getElementById("dailyProduction").value = dailyPay.toFixed(2)
+	document.getElementById("monthlyPaycheck").value = monthlyPaycheck.toFixed(2)
+	document.getElementById("yearlyPay").value = (monthlyPaycheck * 12).toFixed(2)
 	var rawProduction = (monthlyProduction/daysWorked).toFixed(2);
 	document.getElementById("rawProduction").value = rawProduction
+	document.getElementById("thirdsPay").value = (thirdsProduction*daysWorked).toFixed(2)
+	document.getElementById("regPay").value = (regProduction*daysWorked).toFixed(2)
 }
 
 function resetForm() {
